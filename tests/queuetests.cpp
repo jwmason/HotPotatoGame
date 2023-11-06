@@ -63,6 +63,14 @@ TEST_CASE("MySecondDequeue", "[RequiredQueue]")
     QueueOfStrings a;
     REQUIRE_THROWS_AS( a.dequeue(), QueueEmptyException );
 }
+TEST_CASE("MyThirdDequeue", "[RequiredQueue]")
+{
+    QueueOfStrings a;
+    a.enqueue("Mike");
+    a.enqueue("Mikey");
+    a.dequeue();
+    REQUIRE( a.front() == "Mikey" );
+}
 
 // Tests copy
 TEST_CASE("Copy1", "[RequiredQueue]")
