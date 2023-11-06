@@ -109,6 +109,21 @@ TEST_CASE("Assignment1", "[RequiredQueue]")
     REQUIRE(a.front() == "Test1");
     REQUIRE(a.size() == 2);
 }
+TEST_CASE("Assignment2", "[RequiredQueue]")
+{
+    QueueOfStrings q;
+    q.enqueue("Test1");
+    q.enqueue("Test2");
+
+    QueueOfStrings a;
+    a.enqueue("Test3");
+
+    a = q;
+    q.enqueue("Test4");
+    REQUIRE(a.front() == "Test1");
+    REQUIRE(a.size() == 2);
+    REQUIRE(q.size() == 3);
+}
 
 
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")

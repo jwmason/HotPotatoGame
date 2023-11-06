@@ -18,6 +18,7 @@ QueueOfStrings::QueueOfStrings(const QueueOfStrings & st)
 	{
 		return;
 	}
+	// Make sure the copy is not updated along with the original
 	// Initialize original Node and the new copy Node. Also intialize the first string value
 	Node * org = st.front1;	
 	Node * copy = new Node(org -> value);
@@ -42,7 +43,7 @@ QueueOfStrings & QueueOfStrings::operator=(const QueueOfStrings & st)
 			dequeue();
 		}
 
-		// Deep copy
+		// Copy from original
 		Node * tmp = st.front1;
 		while (tmp != nullptr)
 		{
