@@ -64,6 +64,31 @@ TEST_CASE("MySecondDequeue", "[RequiredQueue]")
     REQUIRE_THROWS_AS( a.dequeue(), QueueEmptyException );
 }
 
+// Tests copy
+TEST_CASE("Copy1", "[RequiredQueue]")
+{
+    QueueOfStrings a;
+    a.enqueue("Mike");
+    REQUIRE( a.front() == "Mike" );
+
+    QueueOfStrings q(a);
+    REQUIRE( q.front() == "Mike");
+}
+TEST_CASE("Copy2", "[RequiredQueue]")
+{
+    QueueOfStrings a;
+    a.enqueue("Mike");
+    REQUIRE( a.front() == "Mike" );
+
+    QueueOfStrings q(a);
+    REQUIRE( q.front() == "Mike");
+
+    a.enqueue("Mikey");
+    REQUIRE( a.size() == 2);
+    REQUIRE( q.size() == 1);
+}
+
+
 
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")
 {

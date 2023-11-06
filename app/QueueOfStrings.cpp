@@ -13,7 +13,22 @@ QueueOfStrings::QueueOfStrings() : front1{nullptr}
 // make a copy and modify one, it should not affect the other. 
 QueueOfStrings::QueueOfStrings(const QueueOfStrings & st)
 {
-
+	// If orginal is empty, nothing to copy
+	if (st.front1 == nullptr)
+	{
+		return;
+	}
+	// Initialize original Node and the new copy Node. Also intialize the first string value
+	Node * org = st.front1;	
+	Node * copy = new Node(org -> value);
+	// Set the copy as the front
+	front1 = copy;
+	// Loop through each node after the first string value and copy it
+	while (org -> next != nullptr)
+	{
+		org = org -> next;
+		enqueue(org -> value);
+	}
 }
 
 QueueOfStrings & QueueOfStrings::operator=(const QueueOfStrings & st)
@@ -60,7 +75,7 @@ bool QueueOfStrings::isEmpty() const noexcept
 
 void QueueOfStrings::enqueue(const std::string & elem)
 {
-	// Check if Node poitner is null. If so, create a new Node with elem. Else, Add the new Node.
+	// Check if Node pointer is null. If so, create a new Node with elem. Else, Add the new Node.
 	if (nullptr == front1)
 	{
 		Node * tmp{front1};
