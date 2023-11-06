@@ -35,7 +35,16 @@ QueueOfStrings::~QueueOfStrings()
 
 size_t QueueOfStrings::size() const noexcept
 {
-	return 15; // stub, probably not the right answer.
+	// Initialize size counter and Node pointer holder
+	size_t counter = 0;
+	Node * temp = front1;
+	// Loop through every Node and count it
+	while (temp != nullptr)
+	{
+		counter ++;
+		temp = temp -> next;
+	}
+	return counter;
 }
 
 

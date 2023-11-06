@@ -36,6 +36,19 @@ TEST_CASE("FrontThrowsWhenNone", "[RequiredQueue]")
     REQUIRE_THROWS_AS( q.front(), QueueEmptyException );
 }
 
+// Tests size
+TEST_CASE("Size1", "[RequiredQueue]")
+{
+    QueueOfStrings q;
+    q.enqueue("Mike");
+    REQUIRE( q.size() == 1);
+}
+TEST_CASE("Size2", "[RequiredQueue]")
+{
+    QueueOfStrings q;
+    REQUIRE( q.size() == 0);
+}
+
 
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")
 {
