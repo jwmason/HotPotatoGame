@@ -49,6 +49,21 @@ TEST_CASE("Size2", "[RequiredQueue]")
     REQUIRE( q.size() == 0);
 }
 
+// Tests enqueue, dequeue, size
+TEST_CASE("MyFirstDequeue", "[RequiredQueue]")
+{
+    QueueOfStrings a;
+    a.enqueue("Mike");
+    REQUIRE( a.front() == "Mike" );
+    a.dequeue();
+    REQUIRE( a.size() == 0);
+}
+TEST_CASE("MySecondDequeue", "[RequiredQueue]")
+{
+    QueueOfStrings a;
+    REQUIRE_THROWS_AS( a.dequeue(), QueueEmptyException );
+}
+
 
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")
 {

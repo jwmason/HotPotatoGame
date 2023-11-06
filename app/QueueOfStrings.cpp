@@ -37,12 +37,12 @@ size_t QueueOfStrings::size() const noexcept
 {
 	// Initialize size counter and Node pointer holder
 	size_t counter = 0;
-	Node * temp = front1;
+	Node * tmp = front1;
 	// Loop through every Node and count it
-	while (temp != nullptr)
+	while (tmp != nullptr)
 	{
 		counter ++;
-		temp = temp -> next;
+		tmp = tmp -> next;
 	}
 	return counter;
 }
@@ -101,6 +101,15 @@ const std::string & QueueOfStrings::front() const
 // does not return anything.  Just removes. 
 void QueueOfStrings::dequeue()
 {
+	// First check if the Queue is empty
+	if (isEmpty())
+	{
+		throw QueueEmptyException("Queue is Empty.");
+	}
+	// Move the Node pointer to the next one and delete the current Node
+	Node * tmp = front1;
+	front1 = front1 -> next;
+	delete tmp;
 }
 
 
