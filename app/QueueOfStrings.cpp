@@ -41,7 +41,12 @@ size_t QueueOfStrings::size() const noexcept
 
 bool QueueOfStrings::isEmpty() const noexcept
 {
-	return false; // stub, probably not the right answer.
+	// If there is no Nodes, return true. Else return false.
+	if (front1 == nullptr)
+	{
+		return true;
+	}
+	return false;
 }
 
 void QueueOfStrings::enqueue(const std::string & elem)

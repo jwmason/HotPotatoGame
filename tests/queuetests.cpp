@@ -21,7 +21,7 @@
 namespace{
 
 
-
+// Tests enqueue, front, and front const
 TEST_CASE("MyFirstEnqueue", "[RequiredQueue]")
 {
     QueueOfStrings a;
@@ -29,7 +29,7 @@ TEST_CASE("MyFirstEnqueue", "[RequiredQueue]")
     REQUIRE( a.front() == "Mike" );
 }
 
-
+// Tests front, front const, and isEmpty
 TEST_CASE("FrontThrowsWhenNone", "[RequiredQueue]")
 {
     QueueOfStrings q;
