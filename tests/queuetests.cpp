@@ -88,6 +88,27 @@ TEST_CASE("Copy2", "[RequiredQueue]")
     REQUIRE( q.size() == 1);
 }
 
+// tests assignment operator
+TEST_CASE("SelfAssignment", "[RequiredQueue]")
+{
+    QueueOfStrings q;
+    q.enqueue("Test");
+    q = q;
+    REQUIRE(q.front() == "Test");
+}
+TEST_CASE("Assignment1", "[RequiredQueue]")
+{
+    QueueOfStrings q;
+    q.enqueue("Test1");
+    q.enqueue("Test2");
+
+    QueueOfStrings a;
+    a.enqueue("Test3");
+
+    a = q;
+    REQUIRE(a.front() == "Test1");
+    REQUIRE(a.size() == 2);
+}
 
 
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")

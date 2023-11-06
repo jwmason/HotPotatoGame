@@ -33,6 +33,23 @@ QueueOfStrings::QueueOfStrings(const QueueOfStrings & st)
 
 QueueOfStrings & QueueOfStrings::operator=(const QueueOfStrings & st)
 {
+	// Check if the objects are equal. If not, remove all elements and deep copy
+	if (this != & st)
+	{
+		// Loop through all Nodes and delete them
+		while (!isEmpty())
+		{
+			dequeue();
+		}
+
+		// Deep copy
+		Node * tmp = st.front1;
+		while (tmp != nullptr)
+		{
+			enqueue(tmp -> value);
+			tmp = tmp -> next;
+		}
+	}
 	return *this;
 }
 
