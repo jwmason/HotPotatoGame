@@ -1,8 +1,9 @@
 #include "QueueOfStrings.hpp"
 
+// enqueue, front, then add stuff to constructor along way, destruct along the way to allocate memory,
+// copy/assignment operator last
 
-
-QueueOfStrings::QueueOfStrings()
+QueueOfStrings::QueueOfStrings() : front1{nullptr}
 {
 }
 
@@ -38,18 +39,38 @@ bool QueueOfStrings::isEmpty() const noexcept
 
 void QueueOfStrings::enqueue(const std::string & elem)
 {
-
+	if (nullptr == front1)
+	{
+		Node * tmp{front1};
+		front1 = new Node(elem);
+		front1 -> next = tmp;
+		return;
+	}
+	Node * tmp{front1};
+	while (tmp -> next != nullptr)
+	{
+		tmp = tmp -> next;
+	}
+	tmp -> next = new Node(elem);
 }
 
 
 std::string & QueueOfStrings::front()
 {
-	throw QueueEmptyException{"Queue is Empty"};
+	if (isEmpty())
+	{
+		throw QueueEmptyException{"Queue is Empty"};
+	}
+	return front1 -> value;
 }
 
 const std::string & QueueOfStrings::front() const
 {
-	throw QueueEmptyException{"Queue is Empty"};
+	if (isEmpty())
+	{
+		throw QueueEmptyException{"Queue is Empty"};
+	}
+	return front1 -> value;
 }
 
 

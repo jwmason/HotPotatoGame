@@ -14,7 +14,16 @@ public:
 class QueueOfStrings
 {
 private:
+	// Declare the LinkedList strut within the QueueOfStrings object
+	struct Node{
+		Node(std::string v)
+		: value{v}, next{nullptr}
+		{}
+		std::string value;
+		Node * next;
+	};
 
+	Node * front1;
 
 public:
 	QueueOfStrings();
