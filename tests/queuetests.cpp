@@ -139,7 +139,12 @@ TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")
     std::vector<unsigned> numOfPasses{5, 3};
     REQUIRE("Lakshmi" == playHotPotato(in, numOfPasses));
 }
-
+TEST_CASE("SimpleHotPotato2", "[RequiredHotPotato]")
+{
+    std::ifstream in{"hp_names_1.txt"};
+    std::vector<unsigned> numOfPasses{4, 2};
+    REQUIRE("Sammy" == playHotPotato(in, numOfPasses));
+}
 
 
 
