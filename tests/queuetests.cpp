@@ -133,7 +133,6 @@ TEST_CASE("Assignment2", "[RequiredQueue]")
     REQUIRE(q.size() == 3);
 }
 
-
 TEST_CASE("SimpleHotPotato", "[RequiredHotPotato]")
 {
     std::ifstream in{"hp_names_1.txt"};
